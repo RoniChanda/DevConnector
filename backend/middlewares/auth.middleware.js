@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
 
   // Verify token and get decoded payload
   try {
-    const decodedPayload = jwt.verify(token, config.get("jwtSecretKey"));
+    const decodedPayload = jwt.verify(token, process.env.JWT_SECRETKEY);
     // send payload along with request and continue to next middlewares
     req.user = decodedPayload.user;
     next();

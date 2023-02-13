@@ -5,15 +5,12 @@ node_modules
 /.pnp
 .pnp.js
 
-# json
-default.json
-production.json
-
 # testing
 /coverage
 
 # production
 build
+.production.env
 
 # misc
 .DS_Store

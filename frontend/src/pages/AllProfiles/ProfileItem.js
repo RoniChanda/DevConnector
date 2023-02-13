@@ -10,8 +10,6 @@ function ProfileItem(props) {
     skills,
   } = props.profile;
 
-  console.log(avatar);
-
   return (
     <div className="profile bg-light">
       <img className="round-img" src={avatar} alt="User Gravatar" />

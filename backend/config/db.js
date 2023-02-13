@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const config = require("config");
-const db = config.get("mongoURI");
 
 const connectDB = async () => {
   try {
     mongoose.set("strictQuery", false);
-    await mongoose.connect(db);
+    await mongoose.connect(
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@devconnector.mcgae6k.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+    );
     console.log("MongoDB connected...");
   } catch (err) {
     console.error(err.message);

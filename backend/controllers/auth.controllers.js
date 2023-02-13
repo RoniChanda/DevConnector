@@ -1,7 +1,6 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 
 const User = require("../models/User-model");
 
@@ -46,7 +45,7 @@ const login = async (req, res, next) => {
     let token;
     try {
       const payload = { user: { id: user.id } };
-      token = jwt.sign(payload, config.get("jwtSecretKey"), {
+      token = jwt.sign(payload, process.env.JWT_SECRETKEY, {
         expiresIn: 360000,
       });
 

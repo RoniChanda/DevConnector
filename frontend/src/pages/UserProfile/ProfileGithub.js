@@ -7,8 +7,6 @@ function ProfileGithub({ username }) {
   const { getGithubRepos } = useProfileRequests();
   const { repos } = useSelector((state) => state.profile);
 
-  console.log(repos);
-
   useEffect(() => {
     getGithubRepos(username);
   }, [getGithubRepos, username]);

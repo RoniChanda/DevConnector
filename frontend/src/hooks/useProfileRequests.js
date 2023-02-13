@@ -126,7 +126,6 @@ function useProfileRequests() {
       ]);
       return "success";
     } catch (err) {
-      console.log(err.errors);
       if (err) {
         let errors = [];
         err.errors.forEach((error) => {
@@ -168,7 +167,6 @@ function useProfileRequests() {
       ]);
       return "success";
     } catch (err) {
-      console.log(err.errors);
       if (err) {
         let errors = [];
         err.errors.forEach((error) => {
