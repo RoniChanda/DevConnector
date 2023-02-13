@@ -37,7 +37,7 @@ const registerUser = async (req, res, next) => {
     let token;
     try {
       const payload = { user: { id: user.id } };
-      token = jwt.sign(payload, config.get("jwtSecretKey"), {
+      token = jwt.sign(payload, process.env.JWT_SECRETKEY, {
         expiresIn: 360000,
       });
       res.json({ token, user: { name, email, avatar, date: user.date } });
