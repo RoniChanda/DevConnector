@@ -17,15 +17,6 @@ app.get("/", (req, res, next) => {
 
 // Define CORS
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-//   next();
-// });
 
 // Define routes
 app.use("/api/auth", require("./routes/api/auth"));
