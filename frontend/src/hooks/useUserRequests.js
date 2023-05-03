@@ -75,7 +75,6 @@ function useUserRequests() {
         }
       );
       const resData = await response.json();
-      console.log(resData);
 
       if (!response.ok) {
         throw resData.errors;

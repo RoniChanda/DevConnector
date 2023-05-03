@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -10,27 +10,17 @@ import { useEffect } from "react";
 import ErrorPage from "./components/layout/ErrorPage";
 import RootLayout from "./components/layout/RootLayout";
 import useUserRequests from "./hooks/useUserRequests";
-import Spinner from "./components/ui/Spinner";
-
-const Landing = React.lazy(() => import("./pages/Landing/Landing"));
-const Register = React.lazy(() => import("./pages/Register/Register"));
-const Login = React.lazy(() => import("./pages/Login/Login"));
-const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
-const CreateOrEditProfile = React.lazy(() =>
-  import("./pages/CreateOrEditProfile/CreateOrEditProfile")
-);
-const AddExperience = React.lazy(() =>
-  import("./pages/AddExperience/AddExperience")
-);
-const AddEducation = React.lazy(() =>
-  import("./pages/AddEducation/AddEducation")
-);
-const AllProfiles = React.lazy(() => import("./pages/AllProfiles/AllProfiles"));
-const ProfileByUserId = React.lazy(() =>
-  import("./pages/UserProfile/ProfileByUserId")
-);
-const AllPosts = React.lazy(() => import("./pages/AllPosts/AllPosts"));
-const PostById = React.lazy(() => import("./pages/PostById/PostById"));
+import Landing from "./pages/Landing/Landing";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import CreateOrEditProfile from "./pages/CreateOrEditProfile/CreateOrEditProfile";
+import AddExperience from "./pages/AddExperience/AddExperience";
+import AddEducation from "./pages/AddEducation/AddEducation";
+import AllProfiles from "./pages/AllProfiles/AllProfiles";
+import ProfileByUserId from "./pages/UserProfile/ProfileByUserId";
+import AllPosts from "./pages/AllPosts/AllPosts";
+import PostById from "./pages/PostById/PostById";
 
 function App() {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
@@ -120,11 +110,7 @@ function App() {
     },
   ]);
 
-  return (
-    <Suspense fallback={<Spinner />}>
-      <RouterProvider router={router} />
-    </Suspense>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
